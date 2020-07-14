@@ -1,10 +1,10 @@
 
     <div class="nav-container container-fluid shadow-sm">
         <nav
-            class="navbar nav-top navbar-expand-md navbar-light container-md px-0"
+            class="navbar nav-top navbar-expand-lg navbar-light container-md px-0"
         >
             <a class="navbar-brand" href="#">
-                <img src="../img/Logo 01 Main 01.svg" width="81px" height="44px" />
+                <img src="{{ URL::to('/') }}/img/Logo 01 Main 01.svg" width="81px" height="44px" />
             </a>
             <button
                 class="navbar-toggler order-2"
@@ -70,17 +70,17 @@
             </div>
             <div class="navbar-nav flex-row">
                 <a class="nav-item nav-link px-4">
-                    <img src="../img/user-photo.png" />
+                    <img src="{{ URL::to('/') }}/img/user-photo.png" />
                 </a>
                 <a class="nav-item nav-link pr-0 align-self-center" href="#">
                     <div class="position-relative">
                         <img
-                            src="../img/notification-dot.svg"
+                            src="{{ URL::to('/') }}/img/notification-dot.svg"
                             alt="new notifications"
                             class="position-absolute notification-dot"
                         />
                         <img
-                            src="../img/notification.svg"
+                            src="{{ URL::to('/') }}/img/notification.svg"
                             class="notification-icon"
                             alt="notification icon"
                         />
