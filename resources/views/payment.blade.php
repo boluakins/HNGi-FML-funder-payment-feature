@@ -54,7 +54,7 @@
                         <div class="input-group">
                             <span class="input-group-text" id="selectedCurrency">&#x20A6;</span>
                             <input name="amount" class="form-control form-control-lg form__input" type="number" id="amount"
-                                   value="{{ $request->amount}}" required>
+                                   placeholder="Enter amount" required>
                             <select class="input-group-text" id="chooseCurrency">
                                 <option value="NGN" selected>NGN</option>
                                 <option value="USD">USD</option>

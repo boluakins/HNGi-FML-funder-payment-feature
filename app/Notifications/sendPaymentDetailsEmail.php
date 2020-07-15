@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class sendPaymentDetailsEmail extends Notification
+class sendPaymentDetailsEmail extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -31,7 +31,7 @@ class sendPaymentDetailsEmail extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail','database'];
     }
 
     /**
@@ -43,9 +43,10 @@ class sendPaymentDetailsEmail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting($this->details['greeting'])
-                    ->line($this->details['body'])
-                    ->line($this->details['thanks']);
+            ->subject('Payment Acknowledgement')
+            ->greeting($this->details['greeting'])
+            ->line($this->details['body'])
+            ->line($this->details['thanks']);
     }
 
     /**
