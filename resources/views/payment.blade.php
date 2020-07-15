@@ -2,7 +2,6 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{asset('css/custom-css/payment-page.css')}}">
-    <link rel="stylesheet" href="{{asset('css/custom-css/payment-modals.css')}}">
 @endpush
 
 
@@ -44,17 +43,17 @@
                 <div class="alert alert-danger d-none" style="padding: 0.5rem 1rem;" id="alert" role="alert">
                     <p class="my-0" id="alertMessage"></p>
                 </div>
-                
+
             <form action="{{route('campaign/pay')}}" class="payment-form d-flex flex-column p-4 mt-4" method="POST" novalidate>
 
-           
+
                 @csrf
                     <div class="form-group mb-0">
                         <label class="form__label" for="amount">Amount</label>
                         <div class="input-group">
                             <span class="input-group-text" id="selectedCurrency">&#x20A6;</span>
                             <input name="amount" class="form-control form-control-lg form__input" type="number" id="amount"
-                                   placeholder="Enter amount" required>
+                                   placeholder="Enter amount" onkeyup="validate()" required>
                             <select class="input-group-text" id="chooseCurrency">
                                 <option value="NGN" selected>NGN</option>
                                 <option value="USD">USD</option>
@@ -119,9 +118,6 @@
 
         button.disabled = true;
 
-        amount.addEventListener("change", function(){
-            validate();
-        });
         let validate = () => {
             if (amount.value > 1) {
                 button.disabled = false;
